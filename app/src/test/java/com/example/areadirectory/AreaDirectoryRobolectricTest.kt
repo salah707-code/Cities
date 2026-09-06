@@ -32,6 +32,7 @@ class AreaDirectoryRobolectricTest {
         assertTrue(countries.isNotEmpty())
         val yemen = countries.find { it.id == "YE" }
         assertTrue("Yemen country must exist", yemen != null)
+        assertEquals("Yemen must contain all 22 governorates", 22, yemen?.governorates?.size)
 
         val aden = yemen?.governorates?.find { it.id == "aden" }
         assertTrue("Aden governorate must exist", aden != null)

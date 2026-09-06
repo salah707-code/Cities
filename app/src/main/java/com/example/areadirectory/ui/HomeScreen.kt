@@ -8,7 +8,10 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -313,43 +316,63 @@ fun <T> FormDropdown(
                 .fillMaxWidth()
                 .testTag("${testTagPrefix}_dropdown")
         ) {
-            OutlinedTextField(
-                value = if (selectedText.isNotEmpty()) selectedText else "",
-                onValueChange = {},
-                readOnly = true,
-                enabled = enabled,
-                placeholder = {
-                    Text(
-                        text = placeholder,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.outline
-                    )
-                },
-                leadingIcon = {
-                    Icon(
-                        imageVector = icon,
-                        contentDescription = null,
-                        tint = if (enabled) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline
-                    )
-                },
-                trailingIcon = {
-                    ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded && enabled)
-                },
-                shape = RoundedCornerShape(12.dp),
-                colors = OutlinedTextFieldDefaults.colors(
-                    focusedBorderColor = MaterialTheme.colorScheme.primary,
-                    unfocusedBorderColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.5f)
-                ),
+            Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .menuAnchor()
-                    .testTag("${testTagPrefix}_input")
-            )
+            ) {
+                OutlinedTextField(
+                    value = if (selectedText.isNotEmpty()) selectedText else "",
+                    onValueChange = {},
+                    readOnly = true,
+                    enabled = enabled,
+                    placeholder = {
+                        Text(
+                            text = placeholder,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.outline
+                        )
+                    },
+                    leadingIcon = {
+                        Icon(
+                            imageVector = icon,
+                            contentDescription = null,
+                            tint = if (enabled) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline
+                        )
+                    },
+                    trailingIcon = {
+                        ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded && enabled)
+                    },
+                    shape = RoundedCornerShape(12.dp),
+                    colors = OutlinedTextFieldDefaults.colors(
+                        focusedBorderColor = MaterialTheme.colorScheme.primary,
+                        unfocusedBorderColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.5f)
+                    ),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .testTag("${testTagPrefix}_input")
+                )
+
+                if (enabled) {
+                    Box(
+                        modifier = Modifier
+                            .matchParentSize()
+                            .clickable(
+                                interactionSource = remember { MutableInteractionSource() },
+                                indication = null
+                            ) {
+                                expanded = !expanded
+                            }
+                    )
+                }
+            }
 
             ExposedDropdownMenu(
                 expanded = expanded && enabled,
                 onDismissRequest = { expanded = false },
-                modifier = Modifier.testTag("${testTagPrefix}_menu")
+                modifier = Modifier
+                    .heightIn(max = 300.dp)
+                    .testTag("${testTagPrefix}_menu")
             ) {
                 options.forEach { item ->
                     DropdownMenuItem(

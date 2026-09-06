@@ -45,17 +45,38 @@ data class SearchFormState(
     val selectedCategory: Category? = null,
     val backendUrl: String = BuildConfig.DEFAULT_BACKEND_URL
 ) {
+    /**
+     * Input validation to ensure that the country, governorate, district,
+     * and category fields are all non-empty before allowing the search button
+     * to be enabled in the UI.
+     */
     val isSearchEnabled: Boolean
-        get() = selectedCountry != null &&
-                selectedGovernorate != null &&
-                selectedDistrict != null &&
-                selectedCategory != null
+        get() = isInputValid(
+            country = selectedCountry?.nameAr,
+            governorate = selectedGovernorate?.nameAr,
+            district = selectedDistrict?.nameAr,
+            category = selectedCategory?.nameAr
+        )
 
     val currentGovernorates: List<Governorate>
         get() = selectedCountry?.governorates.orEmpty()
 
     val currentDistricts: List<District>
         get() = selectedGovernorate?.districts.orEmpty()
+
+    companion object {
+        fun isInputValid(
+            country: String?,
+            governorate: String?,
+            district: String?,
+            category: String?
+        ): Boolean {
+            return !country.isNullOrBlank() &&
+                    !governorate.isNullOrBlank() &&
+                    !district.isNullOrBlank() &&
+                    !category.isNullOrBlank()
+        }
+    }
 }
 
 class SearchViewModel @JvmOverloads constructor(
@@ -77,17 +98,45 @@ class SearchViewModel @JvmOverloads constructor(
         }
     }
 
+    /**
+     * Validates whether all four required search fields (country, governorate, district, category)
+     * are non-empty.
+     */
+    fun validateInputs(
+        country: String?,
+        governorate: String?,
+        district: String?,
+        category: String?
+    ): Boolean {
+        return SearchFormState.isInputValid(
+            country = country,
+            governorate = governorate,
+            district = district,
+            category = category
+        )
+    }
+
+    fun isSearchInputValid(): Boolean {
+        val s = _formState.value
+        return validateInputs(
+            country = s.selectedCountry?.nameAr,
+            governorate = s.selectedGovernorate?.nameAr,
+            district = s.selectedDistrict?.nameAr,
+            category = s.selectedCategory?.nameAr
+        )
+    }
+
     private fun loadData() {
         try {
             val (countries, categories) = LocalDataLoader.loadData(getApplication())
             _formState.update { current ->
                 val defaultCountry = countries.firstOrNull()
-                val defaultGov = defaultCountry?.governorates?.firstOrNull()
+                // All cities/governorates are available; do NOT pre-select Aden so user picks freely
                 current.copy(
                     countries = countries,
                     categories = categories,
                     selectedCountry = defaultCountry,
-                    selectedGovernorate = defaultGov,
+                    selectedGovernorate = null,
                     selectedDistrict = null,
                     selectedCategory = null
                 )
@@ -99,10 +148,9 @@ class SearchViewModel @JvmOverloads constructor(
 
     fun selectCountry(country: Country) {
         _formState.update { current ->
-            val firstGov = country.governorates.firstOrNull()
             current.copy(
                 selectedCountry = country,
-                selectedGovernorate = firstGov,
+                selectedGovernorate = null,
                 selectedDistrict = null
             )
         }
@@ -139,13 +187,17 @@ class SearchViewModel @JvmOverloads constructor(
 
     fun search() {
         val state = _formState.value
-        if (!state.isSearchEnabled) return
+        if (!state.isSearchEnabled || !isSearchInputValid()) return
 
-        val country = state.selectedCountry?.nameAr ?: return
-        val governorate = state.selectedGovernorate?.nameAr ?: return
-        val district = state.selectedDistrict?.nameAr ?: return
-        val category = state.selectedCategory?.id ?: return
-        val displayCategory = state.selectedCategory.nameAr
+        val country = state.selectedCountry?.nameAr?.trim() ?: return
+        val governorate = state.selectedGovernorate?.nameAr?.trim() ?: return
+        val district = state.selectedDistrict?.nameAr?.trim() ?: return
+        val category = state.selectedCategory?.id?.trim() ?: return
+        val displayCategory = state.selectedCategory.nameAr.trim()
+
+        if (country.isEmpty() || governorate.isEmpty() || district.isEmpty() || category.isEmpty()) {
+            return
+        }
 
         _uiState.value = SearchUiState.Loading
 

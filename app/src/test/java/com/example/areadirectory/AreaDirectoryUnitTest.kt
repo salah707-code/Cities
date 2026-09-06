@@ -99,6 +99,25 @@ class AreaDirectoryUnitTest {
 
         state = state.copy(selectedCategory = cat)
         assertTrue("Search should be enabled when all 4 are selected", state.isSearchEnabled)
+
+        // Test with blank or empty fields
+        val emptyCountry = Country("YE", "   ", "Yemen")
+        assertFalse(state.copy(selectedCountry = emptyCountry).isSearchEnabled)
+
+        val emptyGov = Governorate("aden", "", "Aden")
+        assertFalse(state.copy(selectedGovernorate = emptyGov).isSearchEnabled)
+
+        val emptyDist = District("al_mansurah", " ", "Al Mansurah")
+        assertFalse(state.copy(selectedDistrict = emptyDist).isSearchEnabled)
+
+        val emptyCat = Category("hospital", "", "Hospitals", "Hospitals")
+        assertFalse(state.copy(selectedCategory = emptyCat).isSearchEnabled)
+
+        assertTrue(SearchFormState.isInputValid("اليمن", "عدن", "المنصورة", "المستشفيات"))
+        assertFalse(SearchFormState.isInputValid("", "عدن", "المنصورة", "المستشفيات"))
+        assertFalse(SearchFormState.isInputValid("اليمن", " ", "المنصورة", "المستشفيات"))
+        assertFalse(SearchFormState.isInputValid("اليمن", "عدن", "", "المستشفيات"))
+        assertFalse(SearchFormState.isInputValid("اليمن", "عدن", "المنصورة", null))
     }
 
     // 3. Query Creation Test

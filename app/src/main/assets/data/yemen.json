@@ -4,150 +4,58 @@
       "id": "YE",
       "nameAr": "اليمن",
       "nameEn": "Yemen",
-      "altNames": ["الجمهورية اليمنية", "Republic of Yemen"],
+      "altNames": ["الجمهورية اليمنية", "Yemen Republic"],
       "governorates": [
         {
           "id": "aden",
           "nameAr": "عدن",
           "nameEn": "Aden",
-          "altNames": ["محافظة عدن", "مدينة عدن"],
+          "altNames": ["محافظة عدن"],
           "districts": [
-            {
-              "id": "al_mansurah",
-              "nameAr": "المنصورة",
-              "nameEn": "Al Mansurah",
-              "altNames": ["مديرية المنصورة", "Mansura", "Mansoorah"]
-            },
-            {
-              "id": "sheikh_othman",
-              "nameAr": "الشيخ عثمان",
-              "nameEn": "Sheikh Othman",
-              "altNames": ["مديرية الشيخ عثمان", "Ash Shaikh Outhman"]
-            },
-            {
-              "id": "al_mualla",
-              "nameAr": "المعلا",
-              "nameEn": "Al Mualla",
-              "altNames": ["مديرية المعلا", "Al Malla"]
-            },
-            {
-              "id": "al_tawahi",
-              "nameAr": "التواهي",
-              "nameEn": "Al Tawahi",
-              "altNames": ["مديرية التواهي", "Steamer Point"]
-            },
-            {
-              "id": "khor_maksar",
-              "nameAr": "خور مكسر",
-              "nameEn": "Khor Maksar",
-              "altNames": ["مديرية خور مكسر", "Khormaksar"]
-            },
-            {
-              "id": "sira",
-              "nameAr": "صيرة",
-              "nameEn": "Crater",
-              "altNames": ["مديرية صيرة", "كريتر", "Sira"]
-            },
-            {
-              "id": "dar_saad",
-              "nameAr": "دار سعد",
-              "nameEn": "Dar Saad",
-              "altNames": ["مديرية دار سعد", "Dar Sa'ad"]
-            },
-            {
-              "id": "al_buraiqeh",
-              "nameAr": "البريقة",
-              "nameEn": "Al Buraiqeh",
-              "altNames": ["مديرية البريقة", "Little Aden", "Al Buraiqah"]
-            }
+            { "id": "al_mansurah", "nameAr": "المنصورة", "nameEn": "Al Mansurah", "altNames": ["Mansoura"] },
+            { "id": "sheikh_othman", "nameAr": "الشيخ عثمان", "nameEn": "Sheikh Othman", "altNames": ["Ash Shaikh Outhman"] },
+            { "id": "al_mualla", "nameAr": "المعلا", "nameEn": "Al Mualla", "altNames": ["Al Mu'alla"] },
+            { "id": "al_tawahi", "nameAr": "التواهي", "nameEn": "Al Tawahi", "altNames": ["At Tawahi"] },
+            { "id": "khor_maksar", "nameAr": "خور مكسر", "nameEn": "Khor Maksar", "altNames": ["Khormaksar"] },
+            { "id": "sira", "nameAr": "صيرة", "nameEn": "Crater", "altNames": ["كريتر", "Sira"] },
+            { "id": "dar_saad", "nameAr": "دار سعد", "nameEn": "Dar Saad", "altNames": ["Dar Sa'd"] },
+            { "id": "al_buraiqeh", "nameAr": "البريقة", "nameEn": "Al Buraiqeh", "altNames": ["Little Aden", "Al Buraikah"] }
+          ]
+        },
+        {
+          "id": "amanat_al_asimah",
+          "nameAr": "أمانة العاصمة",
+          "nameEn": "Sana'a City",
+          "altNames": ["صنعاء العاصمة", "Amanat Al Asimah"],
+          "districts": [
+            { "id": "al_tahrir", "nameAr": "التحرير", "nameEn": "Al Tahrir" },
+            { "id": "al_sabeen", "nameAr": "السبعين", "nameEn": "Al Sabeen" },
+            { "id": "al_safiyah", "nameAr": "الصافية", "nameEn": "Al Safiyah" },
+            { "id": "al_wahdah", "nameAr": "الوحدة", "nameEn": "Al Wahdah" },
+            { "id": "maeen", "nameAr": "معين", "nameEn": "Mae'en", "altNames": ["شملان"] },
+            { "id": "al_thawrah", "nameAr": "الثورة", "nameEn": "Al Thawrah" },
+            { "id": "shuaub", "nameAr": "شعوب", "nameEn": "Shu'aub" },
+            { "id": "azal", "nameAr": "آزال", "nameEn": "Azal" },
+            { "id": "old_sanaa", "nameAr": "صنعاء القديمة", "nameEn": "Old City of Sana'a" },
+            { "id": "bani_al_harith", "nameAr": "بني الحارث", "nameEn": "Bani Al Harith" }
           ]
         },
         {
           "id": "sanaa",
-          "nameAr": "صنعاء",
-          "nameEn": "Sana'a",
-          "altNames": ["أمانة العاصمة", "محافظة صنعاء"],
+          "nameAr": "صنعاء (المحافظة)",
+          "nameEn": "Sana'a Governorate",
+          "altNames": ["محافظة صنعاء"],
           "districts": [
-            {
-              "id": "al_wahdah",
-              "nameAr": "الوحدة",
-              "nameEn": "Al Wahdah",
-              "altNames": ["مديرية الوحدة"]
-            },
-            {
-              "id": "al_sabeen",
-              "nameAr": "السبعين",
-              "nameEn": "Al Sabeen",
-              "altNames": ["مديرية السبعين"]
-            },
-            {
-              "id": "al_tahrir",
-              "nameAr": "التحرير",
-              "nameEn": "Al Tahrir",
-              "altNames": ["مديرية التحرير"]
-            },
-            {
-              "id": "shoub",
-              "nameAr": "شعوب",
-              "nameEn": "Shu'ub",
-              "altNames": ["مديرية شعوب"]
-            },
-            {
-              "id": "althawrah",
-              "nameAr": "الثورة",
-              "nameEn": "Ath'thawrah",
-              "altNames": ["مديرية الثورة"]
-            },
-            {
-              "id": "azal",
-              "nameAr": "أزال",
-              "nameEn": "Azal",
-              "altNames": ["مديرية أزال"]
-            },
-            {
-              "id": "old_city",
-              "nameAr": "صنعاء القديمة",
-              "nameEn": "Old City",
-              "altNames": ["مديرية صنعاء القديمة"]
-            },
-            {
-              "id": "main",
-              "nameAr": "معين",
-              "nameEn": "Ma'ain",
-              "altNames": ["مديرية معين"]
-            }
-          ]
-        },
-        {
-          "id": "hadramaut",
-          "nameAr": "حضرموت",
-          "nameEn": "Hadramout",
-          "altNames": ["محافظة حضرموت"],
-          "districts": [
-            {
-              "id": "al_mukalla",
-              "nameAr": "المكلا",
-              "nameEn": "Al Mukalla",
-              "altNames": ["مديرية المكلا"]
-            },
-            {
-              "id": "seiyun",
-              "nameAr": "سيئون",
-              "nameEn": "Seiyun",
-              "altNames": ["مديرية سيئون", "Sayun"]
-            },
-            {
-              "id": "tarim",
-              "nameAr": "تريم",
-              "nameEn": "Tarim",
-              "altNames": ["مديرية تريم"]
-            },
-            {
-              "id": "al_shihr",
-              "nameAr": "الشحر",
-              "nameEn": "Al Shihr",
-              "altNames": ["مديرية الشحر"]
-            }
+            { "id": "sanhan", "nameAr": "سنحان وبني بهلول", "nameEn": "Sanhan" },
+            { "id": "bani_hushaysh", "nameAr": "بني حشيش", "nameEn": "Bani Hushaysh" },
+            { "id": "bani_matar", "nameAr": "بني مطر", "nameEn": "Bani Matar" },
+            { "id": "hamdan", "nameAr": "همدان", "nameEn": "Hamdan" },
+            { "id": "al_haymah_dakhiliyah", "nameAr": "الحيمة الداخلية", "nameEn": "Al Haymah Dakhiliyah" },
+            { "id": "al_haymah_kharijiyah", "nameAr": "الحيمة الخارجية", "nameEn": "Al Haymah Kharijiyah" },
+            { "id": "manakhah", "nameAr": "مناخة", "nameEn": "Manakhah" },
+            { "id": "khwlan", "nameAr": "جحانة وخولان", "nameEn": "Khwlan" },
+            { "id": "nihm", "nameAr": "نهم", "nameEn": "Nihm" },
+            { "id": "arhab", "nameAr": "أرحب", "nameEn": "Arhab" }
           ]
         },
         {
@@ -156,155 +64,303 @@
           "nameEn": "Taiz",
           "altNames": ["محافظة تعز"],
           "districts": [
-            {
-              "id": "al_qahirah",
-              "nameAr": "القاهرة",
-              "nameEn": "Al Qahirah",
-              "altNames": ["مديرية القاهرة"]
-            },
-            {
-              "id": "al_mudhaffar",
-              "nameAr": "المظفر",
-              "nameEn": "Al Mudhaffar",
-              "altNames": ["مديرية المظفر"]
-            },
-            {
-              "id": "salah",
-              "nameAr": "صالة",
-              "nameEn": "Salah",
-              "altNames": ["مديرية صالة"]
-            }
+            { "id": "al_qahirah", "nameAr": "القاهرة", "nameEn": "Al Qahirah" },
+            { "id": "al_mudhaffar", "nameAr": "المظفر", "nameEn": "Al Mudhaffar" },
+            { "id": "salah", "nameAr": "صالة", "nameEn": "Salah" },
+            { "id": "sabir", "nameAr": "صبر الموادم", "nameEn": "Sabir Al Mwadim" },
+            { "id": "al_turba", "nameAr": "الشمايتين (التربة)", "nameEn": "Ash Shamayatayn", "altNames": ["التربة"] },
+            { "id": "al_maafir", "nameAr": "المعافر", "nameEn": "Al Ma'afer" },
+            { "id": "al_mawasit", "nameAr": "المواسط", "nameEn": "Al Mawasit" },
+            { "id": "al_mukha", "nameAr": "المخا", "nameEn": "Al Mukha", "altNames": ["Mocha"] },
+            { "id": "dhubab", "nameAr": "ذوباب (باب المندب)", "nameEn": "Dhubab", "altNames": ["Bab al-Mandab"] },
+            { "id": "hayfan", "nameAr": "حيفان", "nameEn": "Hayfan" },
+            { "id": "shar'ab", "nameAr": "شرعب", "nameEn": "Shar'ab" },
+            { "id": "dimnat_khadir", "nameAr": "دمنة خدير", "nameEn": "Dimnat Khadir" }
+          ]
+        },
+        {
+          "id": "hadramaut",
+          "nameAr": "حضرموت",
+          "nameEn": "Hadramaut",
+          "altNames": ["محافظة حضرموت", "Hadhramaut"],
+          "districts": [
+            { "id": "al_mukalla", "nameAr": "المكلا", "nameEn": "Al Mukalla", "altNames": ["Mukalla"] },
+            { "id": "sayun", "nameAr": "سيئون", "nameEn": "Say'un", "altNames": ["Seiyun"] },
+            { "id": "tarim", "nameAr": "تريم", "nameEn": "Tarim" },
+            { "id": "ash_shihr", "nameAr": "الشحر", "nameEn": "Ash Shihr" },
+            { "id": "shibam", "nameAr": "شبام", "nameEn": "Shibam" },
+            { "id": "al_qatn", "nameAr": "القطن", "nameEn": "Al Qatn" },
+            { "id": "ghayl_bawazir", "nameAr": "غيل باوزير", "nameEn": "Ghayl Ba Wazir" },
+            { "id": "dawan", "nameAr": "دوعن", "nameEn": "Daw'an" },
+            { "id": "ad_dis", "nameAr": "الديس الشرقية", "nameEn": "Ad Dis" },
+            { "id": "ar_raydah", "nameAr": "الريدة وقصيعر", "nameEn": "Ar Raydah" }
+          ]
+        },
+        {
+          "id": "al_hudaydah",
+          "nameAr": "الحديدة",
+          "nameEn": "Al Hudaydah",
+          "altNames": ["Hodeidah", "Hodeida"],
+          "districts": [
+            { "id": "al_mina", "nameAr": "الميناء", "nameEn": "Al Mina" },
+            { "id": "al_hawak", "nameAr": "الحوك", "nameEn": "Al Hawak" },
+            { "id": "al_hali", "nameAr": "الحالي", "nameEn": "Al Hali" },
+            { "id": "bajil", "nameAr": "باجل", "nameEn": "Bajil" },
+            { "id": "zabid", "nameAr": "زبيد", "nameEn": "Zabid" },
+            { "id": "bayt_al_faqih", "nameAr": "بيت الفقيه", "nameEn": "Bayt Al Faqih" },
+            { "id": "al_khawkhah", "nameAr": "الخوخة", "nameEn": "Al Khawkhah" },
+            { "id": "hays", "nameAr": "حيس", "nameEn": "Hays" },
+            { "id": "al_luhayyah", "nameAr": "اللحية", "nameEn": "Al Luhayyah" }
+          ]
+        },
+        {
+          "id": "ibb",
+          "nameAr": "إب",
+          "nameEn": "Ibb",
+          "altNames": ["محافظة إب"],
+          "districts": [
+            { "id": "adh_dhihar", "nameAr": "الظهار", "nameEn": "Adh Dhihar" },
+            { "id": "al_mashannah", "nameAr": "المشنة", "nameEn": "Al Mashannah" },
+            { "id": "jiblah", "nameAr": "جبلة", "nameEn": "Jiblah" },
+            { "id": "yarim", "nameAr": "يريم", "nameEn": "Yarim" },
+            { "id": "al_udayn", "nameAr": "العدين", "nameEn": "Al Udayn" },
+            { "id": "dhi_as_sufal", "nameAr": "ذي السفال", "nameEn": "Dhi As Sufal" },
+            { "id": "as_saddah", "nameAr": "السدة", "nameEn": "As Saddah" },
+            { "id": "an_nadirah", "nameAr": "النادرة", "nameEn": "An Nadirah" },
+            { "id": "badan", "nameAr": "بعدان", "nameEn": "Ba'dan" }
+          ]
+        },
+        {
+          "id": "marib",
+          "nameAr": "مأرب",
+          "nameEn": "Marib",
+          "altNames": ["Ma'rib"],
+          "districts": [
+            { "id": "marib_city", "nameAr": "مدينة مأرب", "nameEn": "Marib City" },
+            { "id": "marib_valley", "nameAr": "مأرب الوادي", "nameEn": "Marib District" },
+            { "id": "harib", "nameAr": "حريب", "nameEn": "Harib" },
+            { "id": "sirwah", "nameAr": "صرواح", "nameEn": "Sirwah" },
+            { "id": "al_jubah", "nameAr": "الجوبة", "nameEn": "Al Jubah" },
+            { "id": "madghal", "nameAr": "مدغل", "nameEn": "Madghal" }
+          ]
+        },
+        {
+          "id": "dhamar",
+          "nameAr": "ذمار",
+          "nameEn": "Dhamar",
+          "altNames": ["محافظة ذمار"],
+          "districts": [
+            { "id": "dhamar_city", "nameAr": "مدينة ذمار", "nameEn": "Dhamar City" },
+            { "id": "mabar", "nameAr": "معبر (جهران)", "nameEn": "Ma'bar", "altNames": ["Jahran"] },
+            { "id": "ans", "nameAr": "عنس", "nameEn": "Ans" },
+            { "id": "al_hada", "nameAr": "الحداء", "nameEn": "Al Hada" },
+            { "id": "utmah", "nameAr": "عتمة", "nameEn": "Utmah" },
+            { "id": "wusab_al_ali", "nameAr": "وصاب العالي", "nameEn": "Wusab Al Ali" },
+            { "id": "wusab_as_safil", "nameAr": "وصاب السافل", "nameEn": "Wusab As Safil" }
+          ]
+        },
+        {
+          "id": "shabwah",
+          "nameAr": "شبوة",
+          "nameEn": "Shabwah",
+          "altNames": ["Shabwa"],
+          "districts": [
+            { "id": "ataq", "nameAr": "عتق", "nameEn": "Ataq" },
+            { "id": "bayhan", "nameAr": "بيحان", "nameEn": "Bayhan" },
+            { "id": "habban", "nameAr": "حبان", "nameEn": "Habban" },
+            { "id": "mayfaah", "nameAr": "ميفعة", "nameEn": "Mayfa'ah" },
+            { "id": "nisab", "nameAr": "نصاب", "nameEn": "Nisab" },
+            { "id": "ar_rawdah", "nameAr": "الروضة", "nameEn": "Ar Rawdah" },
+            { "id": "usaylan", "nameAr": "عسيلان", "nameEn": "Usaylan" }
+          ]
+        },
+        {
+          "id": "al_mahrah",
+          "nameAr": "المهرة",
+          "nameEn": "Al Mahrah",
+          "altNames": ["Al Mahra"],
+          "districts": [
+            { "id": "al_ghaydah", "nameAr": "الغيضة", "nameEn": "Al Ghaydah" },
+            { "id": "hawf", "nameAr": "حوف", "nameEn": "Hawf" },
+            { "id": "qishn", "nameAr": "قشن", "nameEn": "Qishn" },
+            { "id": "sayhut", "nameAr": "سيحوت", "nameEn": "Sayhut" },
+            { "id": "shahan", "nameAr": "شحن", "nameEn": "Shahan" },
+            { "id": "huswain", "nameAr": "حصوين", "nameEn": "Huswain" }
+          ]
+        },
+        {
+          "id": "lahij",
+          "nameAr": "لحج",
+          "nameEn": "Lahij",
+          "altNames": ["Lahej"],
+          "districts": [
+            { "id": "al_hawtah", "nameAr": "الحوطة", "nameEn": "Al Hawtah" },
+            { "id": "tuban", "nameAr": "تبن", "nameEn": "Tuban" },
+            { "id": "radfan", "nameAr": "ردفان (الحبيلين)", "nameEn": "Radfan" },
+            { "id": "yafa_labus", "nameAr": "يافع (لبعوس)", "nameEn": "Yafa Lab'us" },
+            { "id": "tur_al_bahah", "nameAr": "طور الباحة", "nameEn": "Tur Al Bahah" },
+            { "id": "al_madaribah", "nameAr": "المضاربة ورأس العارة", "nameEn": "Al Madaribah" },
+            { "id": "al_qabbaytah", "nameAr": "القبيطة", "nameEn": "Al Qabbaytah" }
+          ]
+        },
+        {
+          "id": "abyan",
+          "nameAr": "أبين",
+          "nameEn": "Abyan",
+          "altNames": ["محافظة أبين"],
+          "districts": [
+            { "id": "zinjibar", "nameAr": "زنجبار", "nameEn": "Zinjibar" },
+            { "id": "khanfir", "nameAr": "خنفر (جعار)", "nameEn": "Khanfir" },
+            { "id": "lawdar", "nameAr": "لودر", "nameEn": "Lawdar" },
+            { "id": "mudiyah", "nameAr": "مودية", "nameEn": "Mudiyah" },
+            { "id": "rasad", "nameAr": "رصد (يافع السفلى)", "nameEn": "Rasad" },
+            { "id": "ahwar", "nameAr": "أحور", "nameEn": "Ahwar" },
+            { "id": "al_mahfad", "nameAr": "المحفد", "nameEn": "Al Mahfad" }
+          ]
+        },
+        {
+          "id": "al_dhalea",
+          "nameAr": "الضالع",
+          "nameEn": "Al Dhalea",
+          "altNames": ["Ad Dali"],
+          "districts": [
+            { "id": "ad_dhale_city", "nameAr": "مدينة الضالع", "nameEn": "Al Dhalea City" },
+            { "id": "qaatabah", "nameAr": "قعطبة", "nameEn": "Qa'atabah" },
+            { "id": "damt", "nameAr": "دمت", "nameEn": "Damt" },
+            { "id": "juban", "nameAr": "جبن", "nameEn": "Juban" },
+            { "id": "al_azariq", "nameAr": "الأزارق", "nameEn": "Al Azariq" },
+            { "id": "al_husayn", "nameAr": "الحصين", "nameEn": "Al Husayn" }
+          ]
+        },
+        {
+          "id": "al_bayda",
+          "nameAr": "البيضاء",
+          "nameEn": "Al Bayda",
+          "altNames": ["Al Baidha"],
+          "districts": [
+            { "id": "al_bayda_city", "nameAr": "مدينة البيضاء", "nameEn": "Al Bayda City" },
+            { "id": "radaa", "nameAr": "رداع", "nameEn": "Rada'a" },
+            { "id": "mukayras", "nameAr": "مكيراس", "nameEn": "Mukayras" },
+            { "id": "dhi_naim", "nameAr": "ذي ناعم", "nameEn": "Dhi Na'im" },
+            { "id": "az_zahir_bayda", "nameAr": "الزاهر", "nameEn": "Az Zahir" },
+            { "id": "as_sawadiyah", "nameAr": "السوادية", "nameEn": "As Sawadiyah" }
+          ]
+        },
+        {
+          "id": "hajjah",
+          "nameAr": "حجة",
+          "nameEn": "Hajjah",
+          "altNames": ["محافظة حجة"],
+          "districts": [
+            { "id": "hajjah_city", "nameAr": "مدينة حجة", "nameEn": "Hajjah City" },
+            { "id": "abs", "nameAr": "عبس", "nameEn": "Abs" },
+            { "id": "harad", "nameAr": "حرض", "nameEn": "Harad" },
+            { "id": "midi", "nameAr": "ميدي", "nameEn": "Midi" },
+            { "id": "al_mahabishah", "nameAr": "المحابشة", "nameEn": "Al Mahabishah" },
+            { "id": "kuhlan_affar", "nameAr": "كحلان عفار", "nameEn": "Kuhlan Affar" }
+          ]
+        },
+        {
+          "id": "saada",
+          "nameAr": "صعدة",
+          "nameEn": "Sa'ada",
+          "altNames": ["Saada"],
+          "districts": [
+            { "id": "saada_city", "nameAr": "مدينة صعدة", "nameEn": "Sa'ada City" },
+            { "id": "sahar", "nameAr": "سحار", "nameEn": "Sahar" },
+            { "id": "haydan", "nameAr": "حيدان", "nameEn": "Haydan" },
+            { "id": "razih", "nameAr": "رازح", "nameEn": "Razih" },
+            { "id": "baqim", "nameAr": "باقم", "nameEn": "Baqim" },
+            { "id": "kitaf", "nameAr": "كتاف والبقع", "nameEn": "Kitaf Wa Al Boqe'e" }
+          ]
+        },
+        {
+          "id": "al_jawf",
+          "nameAr": "الجوف",
+          "nameEn": "Al Jawf",
+          "altNames": ["Al Jouf"],
+          "districts": [
+            { "id": "al_hazm", "nameAr": "الحزم", "nameEn": "Al Hazm" },
+            { "id": "al_maton", "nameAr": "المتون", "nameEn": "Al Maton" },
+            { "id": "az_zahir_jawf", "nameAr": "الزاهر", "nameEn": "Az Zahir" },
+            { "id": "khabb_shaaf", "nameAr": "خب والشعف", "nameEn": "Khabb wa ash Sha'af" },
+            { "id": "bart_anan", "nameAr": "برط العنان", "nameEn": "Bart Al Anan" }
+          ]
+        },
+        {
+          "id": "amran",
+          "nameAr": "عمران",
+          "nameEn": "Amran",
+          "altNames": ["محافظة عمران"],
+          "districts": [
+            { "id": "amran_city", "nameAr": "مدينة عمران", "nameEn": "Amran City" },
+            { "id": "khamir", "nameAr": "خمر", "nameEn": "Khamir" },
+            { "id": "raydah", "nameAr": "ريدة", "nameEn": "Raydah" },
+            { "id": "habur", "nameAr": "حبور ظليمة", "nameEn": "Habur Zulaymah" },
+            { "id": "shaharah", "nameAr": "شهارة", "nameEn": "Shaharah" },
+            { "id": "dhibin", "nameAr": "ذيبين", "nameEn": "Dhibin" }
+          ]
+        },
+        {
+          "id": "al_mahwit",
+          "nameAr": "المحويت",
+          "nameEn": "Al Mahwit",
+          "altNames": ["Al Mahweet"],
+          "districts": [
+            { "id": "al_mahwit_city", "nameAr": "مدينة المحويت", "nameEn": "Al Mahwit City" },
+            { "id": "shibam_kawkaban", "nameAr": "شبام كوكبان", "nameEn": "Shibam Kawkaban" },
+            { "id": "at_tawilah", "nameAr": "الطويلة", "nameEn": "At Tawilah" },
+            { "id": "milhan", "nameAr": "ملحان", "nameEn": "Milhan" },
+            { "id": "ar_rujum", "nameAr": "الرجم", "nameEn": "Ar Rujum" }
+          ]
+        },
+        {
+          "id": "raymah",
+          "nameAr": "ريمة",
+          "nameEn": "Raymah",
+          "altNames": ["Rima"],
+          "districts": [
+            { "id": "al_jabin", "nameAr": "الجبين", "nameEn": "Al Jabin" },
+            { "id": "bilad_taam", "nameAr": "بلاد الطعام", "nameEn": "Bilad At Ta'am" },
+            { "id": "kusmah", "nameAr": "كسمة", "nameEn": "Kusmah" },
+            { "id": "as_salafiyah", "nameAr": "السلفية", "nameEn": "As Salafiyah" },
+            { "id": "mizhar", "nameAr": "مزهر", "nameEn": "Mizhar" }
+          ]
+        },
+        {
+          "id": "socotra",
+          "nameAr": "أرخبيل سقطرى",
+          "nameEn": "Socotra Archipelago",
+          "altNames": ["سقطرى", "Socotra"],
+          "districts": [
+            { "id": "hadibu", "nameAr": "حديبو", "nameEn": "Hadibu" },
+            { "id": "qalansiyah", "nameAr": "قلنسية وعبد الكوري", "nameEn": "Qalansiyah" }
           ]
         }
       ]
     }
   ],
   "categories": [
-    {
-      "id": "hospital",
-      "nameAr": "المستشفيات",
-      "nameEn": "Hospitals",
-      "googleQuery": "Hospitals"
-    },
-    {
-      "id": "health_center",
-      "nameAr": "المراكز الصحية",
-      "nameEn": "Health Centers",
-      "googleQuery": "Health Centers"
-    },
-    {
-      "id": "pharmacy",
-      "nameAr": "الصيدليات",
-      "nameEn": "Pharmacies",
-      "googleQuery": "Pharmacies"
-    },
-    {
-      "id": "clinic",
-      "nameAr": "العيادات",
-      "nameEn": "Clinics",
-      "googleQuery": "Clinics"
-    },
-    {
-      "id": "medical_lab",
-      "nameAr": "المختبرات",
-      "nameEn": "Medical Laboratories",
-      "googleQuery": "Medical Laboratories"
-    },
-    {
-      "id": "school",
-      "nameAr": "المدارس",
-      "nameEn": "Schools",
-      "googleQuery": "Schools"
-    },
-    {
-      "id": "university",
-      "nameAr": "الجامعات",
-      "nameEn": "Universities",
-      "googleQuery": "Universities"
-    },
-    {
-      "id": "institute",
-      "nameAr": "المعاهد",
-      "nameEn": "Institutes",
-      "googleQuery": "Institutes"
-    },
-    {
-      "id": "mosque",
-      "nameAr": "المساجد",
-      "nameEn": "Mosques",
-      "googleQuery": "Mosques"
-    },
-    {
-      "id": "restaurant",
-      "nameAr": "المطاعم",
-      "nameEn": "Restaurants",
-      "googleQuery": "Restaurants"
-    },
-    {
-      "id": "cafe",
-      "nameAr": "المقاهي",
-      "nameEn": "Cafes",
-      "googleQuery": "Cafes"
-    },
-    {
-      "id": "hotel",
-      "nameAr": "الفنادق",
-      "nameEn": "Hotels",
-      "googleQuery": "Hotels"
-    },
-    {
-      "id": "bank",
-      "nameAr": "البنوك",
-      "nameEn": "Banks",
-      "googleQuery": "Banks"
-    },
-    {
-      "id": "gas_station",
-      "nameAr": "محطات الوقود",
-      "nameEn": "Gas Stations",
-      "googleQuery": "Gas Stations"
-    },
-    {
-      "id": "market",
-      "nameAr": "الأسواق",
-      "nameEn": "Markets",
-      "googleQuery": "Markets"
-    },
-    {
-      "id": "shopping_mall",
-      "nameAr": "المولات",
-      "nameEn": "Shopping Malls",
-      "googleQuery": "Shopping Malls"
-    },
-    {
-      "id": "park",
-      "nameAr": "الحدائق",
-      "nameEn": "Parks",
-      "googleQuery": "Parks"
-    },
-    {
-      "id": "museum",
-      "nameAr": "المتاحف",
-      "nameEn": "Museums",
-      "googleQuery": "Museums"
-    },
-    {
-      "id": "government_office",
-      "nameAr": "الدوائر الحكومية",
-      "nameEn": "Government Offices",
-      "googleQuery": "Government Offices"
-    },
-    {
-      "id": "police_station",
-      "nameAr": "مراكز الشرطة",
-      "nameEn": "Police Stations",
-      "googleQuery": "Police Stations"
-    },
-    {
-      "id": "post_office",
-      "nameAr": "مكاتب البريد",
-      "nameEn": "Post Offices",
-      "googleQuery": "Post Offices"
-    }
+    { "id": "hospital", "nameAr": "المستشفيات", "nameEn": "Hospitals", "googleQuery": "Hospitals" },
+    { "id": "health_center", "nameAr": "المراكز الصحية", "nameEn": "Health Centers", "googleQuery": "Health Centers" },
+    { "id": "pharmacy", "nameAr": "الصيدليات", "nameEn": "Pharmacies", "googleQuery": "Pharmacies" },
+    { "id": "clinic", "nameAr": "العيادات", "nameEn": "Clinics", "googleQuery": "Clinics" },
+    { "id": "laboratory", "nameAr": "المختبرات", "nameEn": "Laboratories", "googleQuery": "Medical Laboratories" },
+    { "id": "school", "nameAr": "المدارس", "nameEn": "Schools", "googleQuery": "Schools" },
+    { "id": "university", "nameAr": "الجامعات", "nameEn": "Universities", "googleQuery": "Universities" },
+    { "id": "institute", "nameAr": "المعاهد", "nameEn": "Institutes", "googleQuery": "Institutes" },
+    { "id": "mosque", "nameAr": "المساجد", "nameEn": "Mosques", "googleQuery": "Mosques" },
+    { "id": "restaurant", "nameAr": "المطاعم", "nameEn": "Restaurants", "googleQuery": "Restaurants" },
+    { "id": "cafe", "nameAr": "المقاهي", "nameEn": "Cafes", "googleQuery": "Cafes" },
+    { "id": "hotel", "nameAr": "الفنادق", "nameEn": "Hotels", "googleQuery": "Hotels" },
+    { "id": "bank", "nameAr": "البنوك", "nameEn": "Banks", "googleQuery": "Banks" },
+    { "id": "gas_station", "nameAr": "محطات الوقود", "nameEn": "Gas Stations", "googleQuery": "Gas Stations" },
+    { "id": "market", "nameAr": "الأسواق", "nameEn": "Markets", "googleQuery": "Markets" },
+    { "id": "mall", "nameAr": "المولات", "nameEn": "Shopping Malls", "googleQuery": "Shopping Malls" },
+    { "id": "park", "nameAr": "الحدائق", "nameEn": "Parks", "googleQuery": "Parks" },
+    { "id": "museum", "nameAr": "المتاحف", "nameEn": "Museums", "googleQuery": "Museums" },
+    { "id": "government_office", "nameAr": "الدوائر الحكومية", "nameEn": "Government Offices", "googleQuery": "Government Offices" },
+    { "id": "police", "nameAr": "مراكز الشرطة", "nameEn": "Police Stations", "googleQuery": "Police Stations" },
+    { "id": "post_office", "nameAr": "مكاتب البريد", "nameEn": "Post Offices", "googleQuery": "Post Offices" }
   ]
 }
