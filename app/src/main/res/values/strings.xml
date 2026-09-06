@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Area Directory</string>
+    <string name="app_title_ar">دليل المناطق</string>
+    <string name="app_subtitle_ar">ابحث عن الأماكن المسجلة في Google Maps داخل أي مديرية</string>
+    <string name="label_country">الدولة</string>
+    <string name="label_governorate">المحافظة</string>
+    <string name="label_district">المديرية</string>
+    <string name="label_category">الفئة</string>
+    <string name="placeholder_select_country">اختر الدولة</string>
+    <string name="placeholder_select_governorate">اختر المحافظة</string>
+    <string name="placeholder_select_district">اختر المديرية</string>
+    <string name="placeholder_select_category">اختر الفئة</string>
+    <string name="btn_search">بحث</string>
+    <string name="btn_open_maps">فتح في Google Maps</string>
+    <string name="loading_searching">جاري البحث...</string>
+    <string name="empty_title">لم يتم العثور على نتائج</string>
+    <string name="empty_subtitle">لم نجد نتائج مطابقة لبحثك في هذه المديرية.</string>
+    <string name="btn_modify_search">تعديل البحث</string>
+    <string name="network_error_title">تعذر الاتصال بالإنترنت</string>
+    <string name="network_error_desc">يرجى التأكد من اتصالك بالإنترنت ثم المحاولة مرة أخرى.</string>
+    <string name="api_error_title">الخدمة غير متاحة مؤقتًا، يرجى المحاولة لاحقًا.</string>
+    <string name="btn_retry">إعادة المحاولة</string>
+    <string name="results_in_district">%1$s في %2$s</string>
+    <string name="results_count">%1$d نتيجة</string>
+    <string name="server_settings">إعدادات الخادم</string>
+    <string name="backend_url_label">رابط Backend (URL)</string>
+    <string name="save">حفظ</string>
+    <string name="cancel">إلغاء</string>
+    <string name="content_desc_back">رجوع</string>
+    <string name="content_desc_settings">الإعدادات</string>
+    <string name="content_desc_location">موقع المكان</string>
+</resources>

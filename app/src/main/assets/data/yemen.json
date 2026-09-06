@@ -1,0 +1,310 @@
+{
+  "countries": [
+    {
+      "id": "YE",
+      "nameAr": "اليمن",
+      "nameEn": "Yemen",
+      "altNames": ["الجمهورية اليمنية", "Republic of Yemen"],
+      "governorates": [
+        {
+          "id": "aden",
+          "nameAr": "عدن",
+          "nameEn": "Aden",
+          "altNames": ["محافظة عدن", "مدينة عدن"],
+          "districts": [
+            {
+              "id": "al_mansurah",
+              "nameAr": "المنصورة",
+              "nameEn": "Al Mansurah",
+              "altNames": ["مديرية المنصورة", "Mansura", "Mansoorah"]
+            },
+            {
+              "id": "sheikh_othman",
+              "nameAr": "الشيخ عثمان",
+              "nameEn": "Sheikh Othman",
+              "altNames": ["مديرية الشيخ عثمان", "Ash Shaikh Outhman"]
+            },
+            {
+              "id": "al_mualla",
+              "nameAr": "المعلا",
+              "nameEn": "Al Mualla",
+              "altNames": ["مديرية المعلا", "Al Malla"]
+            },
+            {
+              "id": "al_tawahi",
+              "nameAr": "التواهي",
+              "nameEn": "Al Tawahi",
+              "altNames": ["مديرية التواهي", "Steamer Point"]
+            },
+            {
+              "id": "khor_maksar",
+              "nameAr": "خور مكسر",
+              "nameEn": "Khor Maksar",
+              "altNames": ["مديرية خور مكسر", "Khormaksar"]
+            },
+            {
+              "id": "sira",
+              "nameAr": "صيرة",
+              "nameEn": "Crater",
+              "altNames": ["مديرية صيرة", "كريتر", "Sira"]
+            },
+            {
+              "id": "dar_saad",
+              "nameAr": "دار سعد",
+              "nameEn": "Dar Saad",
+              "altNames": ["مديرية دار سعد", "Dar Sa'ad"]
+            },
+            {
+              "id": "al_buraiqeh",
+              "nameAr": "البريقة",
+              "nameEn": "Al Buraiqeh",
+              "altNames": ["مديرية البريقة", "Little Aden", "Al Buraiqah"]
+            }
+          ]
+        },
+        {
+          "id": "sanaa",
+          "nameAr": "صنعاء",
+          "nameEn": "Sana'a",
+          "altNames": ["أمانة العاصمة", "محافظة صنعاء"],
+          "districts": [
+            {
+              "id": "al_wahdah",
+              "nameAr": "الوحدة",
+              "nameEn": "Al Wahdah",
+              "altNames": ["مديرية الوحدة"]
+            },
+            {
+              "id": "al_sabeen",
+              "nameAr": "السبعين",
+              "nameEn": "Al Sabeen",
+              "altNames": ["مديرية السبعين"]
+            },
+            {
+              "id": "al_tahrir",
+              "nameAr": "التحرير",
+              "nameEn": "Al Tahrir",
+              "altNames": ["مديرية التحرير"]
+            },
+            {
+              "id": "shoub",
+              "nameAr": "شعوب",
+              "nameEn": "Shu'ub",
+              "altNames": ["مديرية شعوب"]
+            },
+            {
+              "id": "althawrah",
+              "nameAr": "الثورة",
+              "nameEn": "Ath'thawrah",
+              "altNames": ["مديرية الثورة"]
+            },
+            {
+              "id": "azal",
+              "nameAr": "أزال",
+              "nameEn": "Azal",
+              "altNames": ["مديرية أزال"]
+            },
+            {
+              "id": "old_city",
+              "nameAr": "صنعاء القديمة",
+              "nameEn": "Old City",
+              "altNames": ["مديرية صنعاء القديمة"]
+            },
+            {
+              "id": "main",
+              "nameAr": "معين",
+              "nameEn": "Ma'ain",
+              "altNames": ["مديرية معين"]
+            }
+          ]
+        },
+        {
+          "id": "hadramaut",
+          "nameAr": "حضرموت",
+          "nameEn": "Hadramout",
+          "altNames": ["محافظة حضرموت"],
+          "districts": [
+            {
+              "id": "al_mukalla",
+              "nameAr": "المكلا",
+              "nameEn": "Al Mukalla",
+              "altNames": ["مديرية المكلا"]
+            },
+            {
+              "id": "seiyun",
+              "nameAr": "سيئون",
+              "nameEn": "Seiyun",
+              "altNames": ["مديرية سيئون", "Sayun"]
+            },
+            {
+              "id": "tarim",
+              "nameAr": "تريم",
+              "nameEn": "Tarim",
+              "altNames": ["مديرية تريم"]
+            },
+            {
+              "id": "al_shihr",
+              "nameAr": "الشحر",
+              "nameEn": "Al Shihr",
+              "altNames": ["مديرية الشحر"]
+            }
+          ]
+        },
+        {
+          "id": "taiz",
+          "nameAr": "تعز",
+          "nameEn": "Taiz",
+          "altNames": ["محافظة تعز"],
+          "districts": [
+            {
+              "id": "al_qahirah",
+              "nameAr": "القاهرة",
+              "nameEn": "Al Qahirah",
+              "altNames": ["مديرية القاهرة"]
+            },
+            {
+              "id": "al_mudhaffar",
+              "nameAr": "المظفر",
+              "nameEn": "Al Mudhaffar",
+              "altNames": ["مديرية المظفر"]
+            },
+            {
+              "id": "salah",
+              "nameAr": "صالة",
+              "nameEn": "Salah",
+              "altNames": ["مديرية صالة"]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "hospital",
+      "nameAr": "المستشفيات",
+      "nameEn": "Hospitals",
+      "googleQuery": "Hospitals"
+    },
+    {
+      "id": "health_center",
+      "nameAr": "المراكز الصحية",
+      "nameEn": "Health Centers",
+      "googleQuery": "Health Centers"
+    },
+    {
+      "id": "pharmacy",
+      "nameAr": "الصيدليات",
+      "nameEn": "Pharmacies",
+      "googleQuery": "Pharmacies"
+    },
+    {
+      "id": "clinic",
+      "nameAr": "العيادات",
+      "nameEn": "Clinics",
+      "googleQuery": "Clinics"
+    },
+    {
+      "id": "medical_lab",
+      "nameAr": "المختبرات",
+      "nameEn": "Medical Laboratories",
+      "googleQuery": "Medical Laboratories"
+    },
+    {
+      "id": "school",
+      "nameAr": "المدارس",
+      "nameEn": "Schools",
+      "googleQuery": "Schools"
+    },
+    {
+      "id": "university",
+      "nameAr": "الجامعات",
+      "nameEn": "Universities",
+      "googleQuery": "Universities"
+    },
+    {
+      "id": "institute",
+      "nameAr": "المعاهد",
+      "nameEn": "Institutes",
+      "googleQuery": "Institutes"
+    },
+    {
+      "id": "mosque",
+      "nameAr": "المساجد",
+      "nameEn": "Mosques",
+      "googleQuery": "Mosques"
+    },
+    {
+      "id": "restaurant",
+      "nameAr": "المطاعم",
+      "nameEn": "Restaurants",
+      "googleQuery": "Restaurants"
+    },
+    {
+      "id": "cafe",
+      "nameAr": "المقاهي",
+      "nameEn": "Cafes",
+      "googleQuery": "Cafes"
+    },
+    {
+      "id": "hotel",
+      "nameAr": "الفنادق",
+      "nameEn": "Hotels",
+      "googleQuery": "Hotels"
+    },
+    {
+      "id": "bank",
+      "nameAr": "البنوك",
+      "nameEn": "Banks",
+      "googleQuery": "Banks"
+    },
+    {
+      "id": "gas_station",
+      "nameAr": "محطات الوقود",
+      "nameEn": "Gas Stations",
+      "googleQuery": "Gas Stations"
+    },
+    {
+      "id": "market",
+      "nameAr": "الأسواق",
+      "nameEn": "Markets",
+      "googleQuery": "Markets"
+    },
+    {
+      "id": "shopping_mall",
+      "nameAr": "المولات",
+      "nameEn": "Shopping Malls",
+      "googleQuery": "Shopping Malls"
+    },
+    {
+      "id": "park",
+      "nameAr": "الحدائق",
+      "nameEn": "Parks",
+      "googleQuery": "Parks"
+    },
+    {
+      "id": "museum",
+      "nameAr": "المتاحف",
+      "nameEn": "Museums",
+      "googleQuery": "Museums"
+    },
+    {
+      "id": "government_office",
+      "nameAr": "الدوائر الحكومية",
+      "nameEn": "Government Offices",
+      "googleQuery": "Government Offices"
+    },
+    {
+      "id": "police_station",
+      "nameAr": "مراكز الشرطة",
+      "nameEn": "Police Stations",
+      "googleQuery": "Police Stations"
+    },
+    {
+      "id": "post_office",
+      "nameAr": "مكاتب البريد",
+      "nameEn": "Post Offices",
+      "googleQuery": "Post Offices"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Area Directory",
+  "description": "دليل المناطق - محرك بحث عربي للأماكن والخدمات المسجلة في Google Maps عبر مختلف المحافظات والمديريات",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
