@@ -58,7 +58,7 @@ data class SearchFormState(
         get() = selectedGovernorate?.districts.orEmpty()
 }
 
-class SearchViewModel(
+class SearchViewModel @JvmOverloads constructor(
     application: Application,
     private var repository: PlacesRepository? = null
 ) : AndroidViewModel(application) {
