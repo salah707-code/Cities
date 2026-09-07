@@ -29,4 +29,14 @@
     <string name="content_desc_back">رجوع</string>
     <string name="content_desc_settings">الإعدادات</string>
     <string name="content_desc_location">موقع المكان</string>
+    <string name="filter_all">الكل</string>
+    <string name="filter_by_districts">المديريات</string>
+    <string name="filter_by_governorates">المحافظات</string>
+    <string name="filter_results_label">تصفية النتائج:</string>
+    <string name="filtered_results_count">عرض %1$d من أصل %2$d مكان</string>
+    <string name="reset_filter">إعادة تعيين التصفية</string>
+    <string name="no_filtered_results">لا توجد أماكن مطابقة للمرشح المحدد</string>
+    <string name="quick_select">اختيار سريع:</string>
+    <string name="validation_required_fields">يرجى تحديد المحافظة والمديرية والفئة للبدء</string>
+    <string name="ready_to_search">كافة الحقول مكتملة - اضغط للبحث</string>
 </resources>

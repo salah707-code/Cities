@@ -27,7 +27,11 @@ sealed interface SearchUiState {
     data class Success(
         val results: List<Place>,
         val district: String,
-        val category: String
+        val category: String,
+        val governorate: String = "",
+        val country: String = "",
+        val availableDistricts: List<String> = emptyList(),
+        val availableGovernorates: List<String> = emptyList()
     ) : SearchUiState
     data object Empty : SearchUiState
     sealed interface Error : SearchUiState {
@@ -223,7 +227,11 @@ class SearchViewModel @JvmOverloads constructor(
                     _uiState.value = SearchUiState.Success(
                         results = places,
                         district = district,
-                        category = displayCategory
+                        category = displayCategory,
+                        governorate = governorate,
+                        country = country,
+                        availableDistricts = state.currentDistricts.map { it.nameAr },
+                        availableGovernorates = state.currentGovernorates.map { it.nameAr }
                     )
                 }
             } catch (_: IOException) {

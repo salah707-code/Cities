@@ -43,7 +43,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import com.example.R
+import com.example.areadirectory.ui.components.CategoryChipGroup
+import com.example.areadirectory.ui.components.FilterCategoryType
+import com.example.areadirectory.ui.components.FilterChipState
 import com.example.areadirectory.ui.components.PlaceCard
 import com.example.areadirectory.viewmodel.SearchUiState
 
@@ -140,16 +147,75 @@ fun SuccessContent(
     state: SearchUiState.Success,
     modifier: Modifier = Modifier
 ) {
+    var filterState by remember(state) { mutableStateOf(FilterChipState()) }
+
+    // Collect available districts and governorates for chips
+    val detectedDistricts = remember(state) {
+        val fromState = state.availableDistricts
+        val fromResults = state.results.mapNotNull { place ->
+            fromState.find { d -> place.address.contains(d, ignoreCase = true) || place.name.contains(d, ignoreCase = true) }
+        }.distinct()
+        if (fromResults.isNotEmpty()) fromResults else if (fromState.isNotEmpty()) fromState else listOf(state.district)
+    }
+
+    val detectedGovernorates = remember(state) {
+        val fromState = state.availableGovernorates
+        val fromResults = state.results.mapNotNull { place ->
+            fromState.find { g -> place.address.contains(g, ignoreCase = true) || place.name.contains(g, ignoreCase = true) }
+        }.distinct()
+        if (fromResults.isNotEmpty()) fromResults else if (fromState.isNotEmpty()) fromState else if (state.governorate.isNotEmpty()) listOf(state.governorate) else emptyList()
+    }
+
+    // Filter places based on selected filter
+    val filteredPlaces = remember(state.results, filterState) {
+        when (filterState.selectedType) {
+            FilterCategoryType.ALL -> state.results
+            FilterCategoryType.DISTRICTS -> {
+                val target = filterState.selectedItem
+                if (target.isNullOrBlank()) {
+                    state.results
+                } else {
+                    state.results.filter { place ->
+                        place.address.contains(target, ignoreCase = true) ||
+                                place.name.contains(target, ignoreCase = true)
+                    }
+                }
+            }
+            FilterCategoryType.GOVERNORATES -> {
+                val target = filterState.selectedItem
+                if (target.isNullOrBlank()) {
+                    state.results
+                } else {
+                    state.results.filter { place ->
+                        place.address.contains(target, ignoreCase = true) ||
+                                place.name.contains(target, ignoreCase = true)
+                    }
+                }
+            }
+        }
+    }
+
     LazyColumn(
         modifier = modifier.testTag("results_list"),
         contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(14.dp)
     ) {
+        // 1. Category Chip Group for filtering by Governorates or Districts
+        item {
+            CategoryChipGroup(
+                filterState = filterState,
+                districts = detectedDistricts,
+                governorates = detectedGovernorates,
+                onFilterChange = { filterState = it }
+            )
+        }
+
+        // 2. Result Count & Filter Status Header
         item {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 4.dp),
+                    .padding(vertical = 2.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -158,21 +224,81 @@ fun SuccessContent(
                     color = MaterialTheme.colorScheme.primaryContainer,
                     modifier = Modifier.testTag("results_count_chip")
                 ) {
+                    val countText = if (filterState.selectedType == FilterCategoryType.ALL) {
+                        stringResource(R.string.results_count, state.results.size)
+                    } else {
+                        stringResource(R.string.filtered_results_count, filteredPlaces.size, state.results.size)
+                    }
                     Text(
-                        text = stringResource(R.string.results_count, state.results.size),
+                        text = countText,
                         style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold),
                         color = MaterialTheme.colorScheme.onPrimaryContainer,
                         modifier = Modifier.padding(horizontal = 14.dp, vertical = 6.dp)
                     )
                 }
+
+                if (filterState.selectedType != FilterCategoryType.ALL) {
+                    OutlinedButton(
+                        onClick = { filterState = FilterChipState(FilterCategoryType.ALL, null) },
+                        shape = RoundedCornerShape(12.dp),
+                        modifier = Modifier.testTag("btn_reset_filter")
+                    ) {
+                        Text(
+                            text = stringResource(R.string.reset_filter),
+                            style = MaterialTheme.typography.labelSmall
+                        )
+                    }
+                }
             }
         }
 
-        items(
-            items = state.results,
-            key = { it.id }
-        ) { place ->
-            PlaceCard(place = place)
+        // 3. Filtered Results or Empty Filter State
+        if (filteredPlaces.isEmpty()) {
+            item {
+                Surface(
+                    shape = RoundedCornerShape(16.dp),
+                    color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 16.dp)
+                ) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(24.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.SearchOff,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.outline,
+                            modifier = Modifier.size(40.dp)
+                        )
+                        Spacer(modifier = Modifier.height(12.dp))
+                        Text(
+                            text = stringResource(R.string.no_filtered_results),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            textAlign = TextAlign.Center
+                        )
+                        Spacer(modifier = Modifier.height(12.dp))
+                        Button(
+                            onClick = { filterState = FilterChipState(FilterCategoryType.ALL, null) },
+                            shape = RoundedCornerShape(10.dp)
+                        ) {
+                            Text(text = stringResource(R.string.reset_filter))
+                        }
+                    }
+                }
+            }
+        } else {
+            items(
+                items = filteredPlaces,
+                key = { it.id }
+            ) { place ->
+                PlaceCard(place = place)
+            }
         }
     }
 }

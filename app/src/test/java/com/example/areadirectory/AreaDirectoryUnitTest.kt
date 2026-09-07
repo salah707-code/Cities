@@ -205,4 +205,27 @@ class AreaDirectoryUnitTest {
         assertNotNull(networkErr)
         assertNotNull(apiErr)
     }
+
+    // 7. CategoryChipGroup Filter Logic Test
+    @Test
+    fun testCategoryChipGroupFilterState() {
+        val filterStateAll = com.example.areadirectory.ui.components.FilterChipState(
+            selectedType = com.example.areadirectory.ui.components.FilterCategoryType.ALL
+        )
+        assertEquals(com.example.areadirectory.ui.components.FilterCategoryType.ALL, filterStateAll.selectedType)
+
+        val filterStateDistricts = com.example.areadirectory.ui.components.FilterChipState(
+            selectedType = com.example.areadirectory.ui.components.FilterCategoryType.DISTRICTS,
+            selectedItem = "المنصورة"
+        )
+        assertEquals(com.example.areadirectory.ui.components.FilterCategoryType.DISTRICTS, filterStateDistricts.selectedType)
+        assertEquals("المنصورة", filterStateDistricts.selectedItem)
+
+        val filterStateGovs = com.example.areadirectory.ui.components.FilterChipState(
+            selectedType = com.example.areadirectory.ui.components.FilterCategoryType.GOVERNORATES,
+            selectedItem = "عدن"
+        )
+        assertEquals(com.example.areadirectory.ui.components.FilterCategoryType.GOVERNORATES, filterStateGovs.selectedType)
+        assertEquals("عدن", filterStateGovs.selectedItem)
+    }
 }

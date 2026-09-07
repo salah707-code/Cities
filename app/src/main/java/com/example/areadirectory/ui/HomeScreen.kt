@@ -1,6 +1,7 @@
 package com.example.areadirectory.ui
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -8,8 +9,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
@@ -20,6 +19,9 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Category
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LocationCity
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Public
@@ -34,6 +36,8 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
+import androidx.compose.material3.FilterChip
+import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -200,46 +204,216 @@ fun HomeScreen(
                     )
 
                     // 2. Governorate Selection
-                    FormDropdown(
-                        label = stringResource(R.string.label_governorate),
-                        placeholder = stringResource(R.string.placeholder_select_governorate),
-                        icon = Icons.Default.LocationCity,
-                        selectedText = formState.selectedGovernorate?.nameAr ?: "",
-                        options = formState.currentGovernorates,
-                        optionLabel = { it.nameAr },
-                        onOptionSelected = onGovernorateSelected,
-                        enabled = formState.currentGovernorates.isNotEmpty(),
-                        testTagPrefix = "governorate"
-                    )
+                    Column(modifier = Modifier.fillMaxWidth()) {
+                        FormDropdown(
+                            label = stringResource(R.string.label_governorate),
+                            placeholder = stringResource(R.string.placeholder_select_governorate),
+                            icon = Icons.Default.LocationCity,
+                            selectedText = formState.selectedGovernorate?.nameAr ?: "",
+                            options = formState.currentGovernorates,
+                            optionLabel = { it.nameAr },
+                            onOptionSelected = onGovernorateSelected,
+                            enabled = formState.currentGovernorates.isNotEmpty(),
+                            testTagPrefix = "governorate"
+                        )
+
+                        // Quick Chips for Major Governorates
+                        if (formState.currentGovernorates.isNotEmpty()) {
+                            val popularGovs = listOf("عدن", "صنعاء", "تعز", "حضرموت", "الحديدة", "إب", "مأرب")
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(top = 8.dp)
+                                    .horizontalScroll(rememberScrollState()),
+                                horizontalArrangement = Arrangement.spacedBy(6.dp),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                popularGovs.forEach { govName ->
+                                    val match = formState.currentGovernorates.find { it.nameAr == govName }
+                                    if (match != null) {
+                                        val isSelected = formState.selectedGovernorate?.nameAr == govName
+                                        FilterChip(
+                                            selected = isSelected,
+                                            onClick = { onGovernorateSelected(match) },
+                                            label = {
+                                                Text(
+                                                    text = govName,
+                                                    style = MaterialTheme.typography.labelSmall.copy(
+                                                        fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal
+                                                    )
+                                                )
+                                            },
+                                            leadingIcon = if (isSelected) {
+                                                {
+                                                    Icon(
+                                                        imageVector = Icons.Default.Check,
+                                                        contentDescription = null,
+                                                        modifier = Modifier.size(14.dp)
+                                                    )
+                                                }
+                                            } else null,
+                                            shape = RoundedCornerShape(8.dp),
+                                            modifier = Modifier.testTag("quick_gov_$govName")
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                    }
 
                     // 3. District Selection
-                    FormDropdown(
-                        label = stringResource(R.string.label_district),
-                        placeholder = stringResource(R.string.placeholder_select_district),
-                        icon = Icons.Default.LocationOn,
-                        selectedText = formState.selectedDistrict?.nameAr ?: "",
-                        options = formState.currentDistricts,
-                        optionLabel = { it.nameAr },
-                        onOptionSelected = onDistrictSelected,
-                        enabled = formState.currentDistricts.isNotEmpty(),
-                        testTagPrefix = "district"
-                    )
+                    Column(modifier = Modifier.fillMaxWidth()) {
+                        FormDropdown(
+                            label = stringResource(R.string.label_district),
+                            placeholder = stringResource(R.string.placeholder_select_district),
+                            icon = Icons.Default.LocationOn,
+                            selectedText = formState.selectedDistrict?.nameAr ?: "",
+                            options = formState.currentDistricts,
+                            optionLabel = { it.nameAr },
+                            onOptionSelected = onDistrictSelected,
+                            enabled = formState.currentDistricts.isNotEmpty(),
+                            testTagPrefix = "district"
+                        )
+
+                        // Quick Chips for Districts of selected governorate
+                        if (formState.currentDistricts.isNotEmpty()) {
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(top = 8.dp)
+                                    .horizontalScroll(rememberScrollState()),
+                                horizontalArrangement = Arrangement.spacedBy(6.dp),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                formState.currentDistricts.forEach { district ->
+                                    val isSelected = formState.selectedDistrict?.id == district.id
+                                    FilterChip(
+                                        selected = isSelected,
+                                        onClick = { onDistrictSelected(district) },
+                                        label = {
+                                            Text(
+                                                text = district.nameAr,
+                                                style = MaterialTheme.typography.labelSmall.copy(
+                                                    fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal
+                                                )
+                                            )
+                                        },
+                                        leadingIcon = if (isSelected) {
+                                            {
+                                                Icon(
+                                                    imageVector = Icons.Default.Check,
+                                                    contentDescription = null,
+                                                    modifier = Modifier.size(14.dp)
+                                                )
+                                            }
+                                        } else null,
+                                        shape = RoundedCornerShape(8.dp),
+                                        modifier = Modifier.testTag("quick_district_${district.nameAr}")
+                                    )
+                                }
+                            }
+                        }
+                    }
 
                     // 4. Category Selection
-                    FormDropdown(
-                        label = stringResource(R.string.label_category),
-                        placeholder = stringResource(R.string.placeholder_select_category),
-                        icon = Icons.Default.Category,
-                        selectedText = formState.selectedCategory?.nameAr ?: "",
-                        options = formState.categories,
-                        optionLabel = { it.nameAr },
-                        onOptionSelected = onCategorySelected,
-                        testTagPrefix = "category"
+                    Column(modifier = Modifier.fillMaxWidth()) {
+                        FormDropdown(
+                            label = stringResource(R.string.label_category),
+                            placeholder = stringResource(R.string.placeholder_select_category),
+                            icon = Icons.Default.Category,
+                            selectedText = formState.selectedCategory?.nameAr ?: "",
+                            options = formState.categories,
+                            optionLabel = { it.nameAr },
+                            onOptionSelected = onCategorySelected,
+                            testTagPrefix = "category"
+                        )
+
+                        // Quick Chips for Categories
+                        if (formState.categories.isNotEmpty()) {
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(top = 8.dp)
+                                    .horizontalScroll(rememberScrollState()),
+                                horizontalArrangement = Arrangement.spacedBy(6.dp),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                formState.categories.forEach { category ->
+                                    val isSelected = formState.selectedCategory?.id == category.id
+                                    FilterChip(
+                                        selected = isSelected,
+                                        onClick = { onCategorySelected(category) },
+                                        label = {
+                                            Text(
+                                                text = category.nameAr,
+                                                style = MaterialTheme.typography.labelSmall.copy(
+                                                    fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal
+                                                )
+                                            )
+                                        },
+                                        leadingIcon = if (isSelected) {
+                                            {
+                                                Icon(
+                                                    imageVector = Icons.Default.Check,
+                                                    contentDescription = null,
+                                                    modifier = Modifier.size(14.dp)
+                                                )
+                                            }
+                                        } else null,
+                                        shape = RoundedCornerShape(8.dp),
+                                        modifier = Modifier.testTag("quick_category_${category.nameAr}")
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            // Search Readiness Status Indicator
+            Surface(
+                shape = RoundedCornerShape(12.dp),
+                color = if (formState.isSearchEnabled) {
+                    MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.7f)
+                } else {
+                    MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .testTag("search_status_indicator")
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 14.dp, vertical = 10.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Icon(
+                        imageVector = if (formState.isSearchEnabled) Icons.Default.CheckCircle else Icons.Default.Info,
+                        contentDescription = null,
+                        tint = if (formState.isSearchEnabled) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline,
+                        modifier = Modifier.size(20.dp)
+                    )
+                    Text(
+                        text = if (formState.isSearchEnabled) {
+                            stringResource(R.string.ready_to_search)
+                        } else {
+                            stringResource(R.string.validation_required_fields)
+                        },
+                        style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Medium),
+                        color = if (formState.isSearchEnabled) {
+                            MaterialTheme.colorScheme.onPrimaryContainer
+                        } else {
+                            MaterialTheme.colorScheme.onSurfaceVariant
+                        }
                     )
                 }
             }
 
-            Spacer(modifier = Modifier.height(28.dp))
+            Spacer(modifier = Modifier.height(14.dp))
 
             // Search Button (Disabled until all selections complete)
             Button(
@@ -311,61 +485,43 @@ fun <T> FormDropdown(
 
         ExposedDropdownMenuBox(
             expanded = expanded && enabled,
-            onExpandedChange = { if (enabled) expanded = !expanded },
+            onExpandedChange = { if (enabled) expanded = it },
             modifier = Modifier
                 .fillMaxWidth()
                 .testTag("${testTagPrefix}_dropdown")
         ) {
-            Box(
+            OutlinedTextField(
+                value = if (selectedText.isNotEmpty()) selectedText else "",
+                onValueChange = {},
+                readOnly = true,
+                enabled = enabled,
+                placeholder = {
+                    Text(
+                        text = placeholder,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.outline
+                    )
+                },
+                leadingIcon = {
+                    Icon(
+                        imageVector = icon,
+                        contentDescription = null,
+                        tint = if (enabled) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline
+                    )
+                },
+                trailingIcon = {
+                    ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded && enabled)
+                },
+                shape = RoundedCornerShape(12.dp),
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = MaterialTheme.colorScheme.primary,
+                    unfocusedBorderColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.5f)
+                ),
                 modifier = Modifier
                     .fillMaxWidth()
                     .menuAnchor()
-            ) {
-                OutlinedTextField(
-                    value = if (selectedText.isNotEmpty()) selectedText else "",
-                    onValueChange = {},
-                    readOnly = true,
-                    enabled = enabled,
-                    placeholder = {
-                        Text(
-                            text = placeholder,
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.outline
-                        )
-                    },
-                    leadingIcon = {
-                        Icon(
-                            imageVector = icon,
-                            contentDescription = null,
-                            tint = if (enabled) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline
-                        )
-                    },
-                    trailingIcon = {
-                        ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded && enabled)
-                    },
-                    shape = RoundedCornerShape(12.dp),
-                    colors = OutlinedTextFieldDefaults.colors(
-                        focusedBorderColor = MaterialTheme.colorScheme.primary,
-                        unfocusedBorderColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.5f)
-                    ),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .testTag("${testTagPrefix}_input")
-                )
-
-                if (enabled) {
-                    Box(
-                        modifier = Modifier
-                            .matchParentSize()
-                            .clickable(
-                                interactionSource = remember { MutableInteractionSource() },
-                                indication = null
-                            ) {
-                                expanded = !expanded
-                            }
-                    )
-                }
-            }
+                    .testTag("${testTagPrefix}_input")
+            )
 
             ExposedDropdownMenu(
                 expanded = expanded && enabled,
@@ -375,18 +531,32 @@ fun <T> FormDropdown(
                     .testTag("${testTagPrefix}_menu")
             ) {
                 options.forEach { item ->
+                    val itemLabel = optionLabel(item)
+                    val isSelected = selectedText == itemLabel
                     DropdownMenuItem(
                         text = {
                             Text(
-                                text = optionLabel(item),
-                                style = MaterialTheme.typography.bodyMedium
+                                text = itemLabel,
+                                style = MaterialTheme.typography.bodyMedium,
+                                fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal,
+                                color = if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface
                             )
                         },
+                        leadingIcon = if (isSelected) {
+                            {
+                                Icon(
+                                    imageVector = Icons.Default.Check,
+                                    contentDescription = null,
+                                    tint = MaterialTheme.colorScheme.primary,
+                                    modifier = Modifier.size(18.dp)
+                                )
+                            }
+                        } else null,
                         onClick = {
                             onOptionSelected(item)
                             expanded = false
                         },
-                        modifier = Modifier.testTag("${testTagPrefix}_item_${optionLabel(item)}")
+                        modifier = Modifier.testTag("${testTagPrefix}_item_$itemLabel")
                     )
                 }
             }
